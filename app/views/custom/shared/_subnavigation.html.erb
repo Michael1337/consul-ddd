@@ -13,13 +13,13 @@
     <% end %>
     
     <% if feature?(:proposals) %>
-      <li>
+      <!--<li>
         <%= layout_menu_link_to t("layouts.header.proposals"),
                                 proposals_path,
                                 controller.class == ProposalsController,
                                 accesskey: "2",
                                 title: t("shared.go_to_page") + t("layouts.header.proposals") %>
-      </li>
+      </li>-->
     <% end %>
     <% if feature?(:polls) %>
       <li>

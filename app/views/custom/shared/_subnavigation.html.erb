@@ -12,15 +12,15 @@
       </li>
     <% end %>
     
-    #<% if feature?(:proposals) %>
-    #  <li>
-    #    <%= layout_menu_link_to t("layouts.header.proposals"),
-    #                            proposals_path,
-    #                            controller.class == ProposalsController,
-    #                            accesskey: "2",
-    #                            title: t("shared.go_to_page") + t("layouts.header.proposals") %>
-    #  </li>
-    #<% end %>
+    <% if feature?(:proposals) %>
+      <li>
+        <%= layout_menu_link_to t("layouts.header.proposals"),
+                                proposals_path,
+                                controller.class == ProposalsController,
+                                accesskey: "2",
+                                title: t("shared.go_to_page") + t("layouts.header.proposals") %>
+      </li>
+    <% end %>
     <% if feature?(:polls) %>
       <li>
         <%= layout_menu_link_to t("layouts.header.poll_questions"),

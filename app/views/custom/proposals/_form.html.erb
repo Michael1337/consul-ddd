@@ -52,7 +52,7 @@
     </div>
 
     <% if feature?(:map) %>
-      <div class="small-12 column">
+      <div class="small-12 column <% if params[:project] && (params[:project].downcase().include? "katzenbergtunnel") %>hide<% end %>">
 
         <%= render "map_locations/form_fields",
                    form:     f,

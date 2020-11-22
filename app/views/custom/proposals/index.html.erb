@@ -19,13 +19,16 @@
   <% end %>
 
   <div class="row">
-    <div class="map inline">
-      <h3><%= t("proposals.index.map") %></h3>
-      <%= render_map(nil, "proposals", false, nil, @proposals_coordinates) %>
-    </div>
-    <div class="no-bullet margin-top"> 
-    </div>
-
+  
+	<% if @search_terms.present? && (!@search_terms.downcase().include? "katzenbergtunnel") %>
+	    <div class="map inline">
+	      <h3><%= t("proposals.index.map") %></h3>
+	      <%= render_map(nil, "proposals", false, nil, @proposals_coordinates) %>
+	    </div>
+	    <div class="no-bullet margin-top"> 
+	    </div>
+	<% end %>
+  	
     <div id="proposals" class="proposals-list small-12 medium-9 column">
 
       <% if has_banners? %>

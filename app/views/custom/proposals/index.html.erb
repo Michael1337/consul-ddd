@@ -20,7 +20,7 @@
 
   <div class="row">
   
-	<% if @search_terms.present? && (!@search_terms.downcase().include? "katzenbergtunnel") %>
+	<% if !@search_terms.present? || (!@search_terms.downcase().include? "katzenbergtunnel") %>
 	    <div class="map inline">
 	      <h3><%= t("proposals.index.map") %></h3>
 	      <%= render_map(nil, "proposals", false, nil, @proposals_coordinates) %>

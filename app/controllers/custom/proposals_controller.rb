@@ -14,7 +14,7 @@ class ProposalsController
     if (params[:search].present?) && (!current_user.present? || !(current_user.moderator? || current_user.administrator?)) then
         params[:project] = params[:search]
     end
-    
+
     if (!params[:project].present? || !Tag.category_names.include?(params[:project])) &&
       (!current_user.present? || !(current_user.moderator? || current_user.administrator?)) then
         redirect_to "/"
@@ -25,7 +25,7 @@ class ProposalsController
     @proposal = Proposal.new(proposal_params.merge(author: current_user))
     if @proposal.save
       proposal_created_email(@proposal)
-      redirect_to created_proposal_path(@proposal), notice: I18n.t("flash.actions.create.proposal")
+      redirect_to created_proposal_path(@proposal)
     else
       render :new
     end
@@ -60,7 +60,7 @@ class ProposalsController
         @resources = @resources.proposals_by_category(params[:project])
       end
     end
-    
+
     def all_active_proposals
      	if params[:project]
     		Proposal.published().not_retired().not_archived().proposals_by_category(params[:project])
@@ -70,7 +70,7 @@ class ProposalsController
 	  Proposal.published().not_retired().not_archived().all
 	end
     end
-  
+
     def proposal_created_email(proposal)
       @proposal = proposal
       @project = @proposal.tag_list_with_limit(1)

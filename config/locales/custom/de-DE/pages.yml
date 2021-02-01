@@ -15,6 +15,12 @@ de:
         link: "Bürgervorschläge"
         image_alt: "Klicken Sie hier um den Vorschlag zu unterstützen"
         figcaption: 'Button zur "Unterstützung" eines Vorschlags.'
+        hint_one:
+          title: "Nachträgliche Bearbeitung von Vorschlägen nicht möglich:"
+          text:  "Da die Vorschläge kommentiert werden können, ist eine nachträgliche Bearbeitung der Vorschläge nicht möglich. Bitte überprüfen Sie Ihren Vorschlag und halten Sie ggf. ein Foto parat, bevor Sie den Vorschlag veröffentlichen. Wichtig: Sie müssen zunächst „Vorschau anzeigen“ und dann noch einmal „Vorschlag veröffentlichen“ anklicken."
+        hint_two:
+          title: "Ihr Vorschlag ist nicht für alle sichtbar:"
+          text: "Dies liegt wahrscheinlich daran, dass Sie nur auf „Vorschau anzeigen“ und dann anschließend nicht noch auf „Vorschlag veröffentlichen“ geklickt haben. Nach „Vorschau anzeigen“ müssen Sie im darauf folgenden Fenster auf einen weiteren Button „Vorschlag veröffentlichen“ klicken, dann ist Ihr Vorschlag für alle sichtbar. Es ist leider nicht möglich, einen Entwurf zu bearbeiten, in diesem Fall müssen Sie Ihren Vorschlag noch einmal neu einstellen."
     accessibility:
       title: Zugänglichkeit
       description: "|-

@@ -24,4 +24,11 @@
     </div>
   <% end %>
 
+  <%= render "shared/social_share",
+    title: @custom_page.title,
+    url: "http://"+request.host+@custom_page.url,
+    description: @custom_page.title,
+    mobile: @custom_page.title
+%>
+
 </div>

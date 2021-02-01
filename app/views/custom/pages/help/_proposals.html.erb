@@ -7,6 +7,12 @@
       <%= sanitize(t("pages.help.proposals.description",
                      link: link_to(t("pages.help.proposals.description_link", org: setting["org_name"]),
                                    new_user_registration_path))) %>
+      <br>
+      <strong><%=  t("pages.help.proposals.hint_one.title") %></strong>
+      <%=  t("pages.help.proposals.hint_one.text") %>
+      <br>
+      <strong><%=  t("pages.help.proposals.hint_two.title") %></strong>
+      <%=  t("pages.help.proposals.hint_two.text") %>
     </p>
 
     <figure>

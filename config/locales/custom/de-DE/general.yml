@@ -61,6 +61,7 @@ de:
       reason_for_supports_necessary: ""
       share:
         edit: ""
+      archived: "Dieser Vorschlag wurde archiviert und kann nicht mehr unterstützt werden."
     comments_deactivated: Zu diesem Vorschlag sind keine weiteren Kommentare möglich.
   welcome:
     feed:

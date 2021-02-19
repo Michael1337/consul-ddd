@@ -24,7 +24,7 @@
             <div class="supports text-center">
               <%= render "supports", proposal: proposal %>
             </div>
-          <% elsif proposal.archived? %>
+          <% elsif (proposal.archived? || (proposal.tag_list.to_s.downcase().include? "bischofshut")) %>
             <div class="padding text-center">
               <p>
                 <strong><%= t("proposals.proposal.supports", count: proposal.total_votes) %></strong>

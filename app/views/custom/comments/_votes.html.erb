@@ -4,7 +4,9 @@
 	    <%= t("comments.comment.votes", count: comment.total_votes) %>
 	    &nbsp;|&nbsp;
 	    
-		  <% if (comment.commentable.is_a?(Proposal) || comment.commentable.is_a?(Debate)) && (comment.commentable.tag_list.to_s.downcase().include? "bischofshut") %>
+		  <% if (comment.commentable.is_a?(Proposal) || comment.commentable.is_a?(Debate)) && 
+		   (comment.commentable.tag_list.to_s.downcase().include?("bischofshut") || 
+     	 	    comment.commentable.tag_list.to_s.downcase().include?("katzenbergtunnel")) %>
 	  
 		    <span class="in_favor">
 			

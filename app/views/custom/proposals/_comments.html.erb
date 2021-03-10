@@ -4,7 +4,8 @@
       <%= render "shared/wide_order_selector", i18n_namespace: "comments" %>
 
       <% if user_signed_in? %>
-     	<% if !(@proposal.tag_list.to_s.downcase().include? "bischofshut") %>
+     	<% if !(@proposal.tag_list.to_s.downcase().include?("bischofshut") || 
+     		@proposal.tag_list.to_s.downcase().include?("katzenbergtunnel")) %>
         	<%= render "comments/form", { commentable: @proposal, parent_id: nil } %>
       	<% else %>
       		<p><%= t("proposals.comments_deactivated") %></p>

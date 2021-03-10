@@ -9,7 +9,8 @@
       <%= render "shared/wide_order_selector", i18n_namespace: "comments" %>
 
       <% if user_signed_in? %>
-        <% if !(@debate.tag_list.to_s.downcase().include? "bischofshut") %>
+        <% if !(@debate.tag_list.to_s.downcase().include?("bischofshut") || 
+     	 	@debate.tag_list.to_s.downcase().include?("katzenbergtunnel")) %>
         <%= render "comments/form", { commentable: @debate, parent_id: nil } %>
       	<% else %>
       		<p><%= t("debates.comments_deactivated") %></p>

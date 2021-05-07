@@ -73,7 +73,9 @@
             </div>
           <% elsif (proposal.archived? || 
           (proposal.tag_list.to_s.downcase().include?("bischofshut") || 
-          proposal.tag_list.to_s.downcase().include?("katzenbergtunnel"))) %>
+          proposal.tag_list.to_s.downcase().include?("katzenbergtunnel") || 
+          proposal.tag_list.to_s.downcase().include?("handlungsbedarfe grombühl") || 
+          proposal.tag_list.to_s.downcase().include?("stärken grombühl"))) %>
             <div class="padding text-center">
               <strong><%= t("proposals.proposal.supports", count: proposal.total_votes) %></strong>
               <p><%= t("proposals.proposal.archived") %></p>

@@ -5,7 +5,9 @@
 
       <% if user_signed_in? %>
      	<% if !(@proposal.tag_list.to_s.downcase().include?("bischofshut") || 
-     		@proposal.tag_list.to_s.downcase().include?("katzenbergtunnel")) %>
+     		@proposal.tag_list.to_s.downcase().include?("katzenbergtunnel") || 
+     		@proposal.tag_list.to_s.downcase().include?("handlungsbedarfe grombühl") || 
+     		@proposal.tag_list.to_s.downcase().include?("stärken grombühl")) %>
         	<%= render "comments/form", { commentable: @proposal, parent_id: nil } %>
       	<% else %>
       		<p><%= t("proposals.comments_deactivated") %></p>

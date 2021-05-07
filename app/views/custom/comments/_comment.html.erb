@@ -93,7 +93,9 @@
             
      	  <% if (@commentable.is_a?(Proposal) || @commentable.is_a?(Debate)) && 
      	  (@commentable.tag_list.to_s.downcase().include?("bischofshut") || 
-     	   @commentable.tag_list.to_s.downcase().include?("katzenbergtunnel")) %>
+     	   @commentable.tag_list.to_s.downcase().include?("katzenbergtunnel") || 
+     	   @commentable.tag_list.to_s.downcase().include?("stärken grombühl") || 
+     	   @commentable.tag_list.to_s.downcase().include?("handlungsbedarfe grombühl")) %>
           <% else %>
               <span class="divider">&nbsp;|&nbsp;</span>
               <%= link_to(comment_link_text(comment), "",

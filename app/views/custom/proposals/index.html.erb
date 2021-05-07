@@ -105,7 +105,10 @@
       <aside class="margin-bottom">
         <% if (current_user.present? && (current_user.moderator? || current_user.administrator?)) ||
            (params[:project].present? && 
-           !(params[:project].downcase().include?("bischofshut") || params[:project].downcase().include?("katzenbergtunnel"))) %>
+           !(params[:project].downcase().include?("bischofshut") || 
+           params[:project].downcase().include?("katzenbergtunnel") || 
+           params[:project].downcase().include?("handlungsbedarfe grombühl") || 
+           params[:project].downcase().include?("stärken grombühl"))) %>
           <%= link_to t("proposals.index.start_proposal"),
                       (new_proposal_path + (if params[:project].present? then ("?project="+params[:project]) else "" end)),
                       class: "button expanded" %>

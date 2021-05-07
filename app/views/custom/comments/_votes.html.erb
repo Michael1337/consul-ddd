@@ -6,7 +6,9 @@
 	    
 		  <% if (comment.commentable.is_a?(Proposal) || comment.commentable.is_a?(Debate)) && 
 		   (comment.commentable.tag_list.to_s.downcase().include?("bischofshut") || 
-     	 	    comment.commentable.tag_list.to_s.downcase().include?("katzenbergtunnel")) %>
+     	 	    comment.commentable.tag_list.to_s.downcase().include?("katzenbergtunnel") || 
+     	  	    comment.commentable.tag_list.to_s.downcase().include?("handlungsbedarfe grombühl") || 
+		    comment.commentable.tag_list.to_s.downcase().include?("stärken grombühl")) %>
 	  
 		    <span class="in_favor">
 			

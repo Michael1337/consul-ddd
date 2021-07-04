@@ -9,7 +9,7 @@
 <% end %>
 
 <main>
-  
+
   <%= render "shared/section_header", i18n_namespace: "proposals.index.section_header", image: "proposals" %>
 
   <% if show_recommended_proposals? %>
@@ -19,21 +19,19 @@
   <% end %>
 
   <div class="row">
-  
+
 	<% if !@search_terms.present? || (!@search_terms.downcase().include? "katzenbergtunnel") %>
 	    <div class="map inline">
 	      <h3><%= t("proposals.index.map") %></h3>
 	      <%= render_map(nil, "proposals", false, nil, @proposals_coordinates) %>
 	    </div>
-	    <div class="no-bullet margin-top"> 
+	    <div class="no-bullet margin-top">
 	    </div>
 	<% end %>
-  	
+
     <div id="proposals" class="proposals-list small-12 medium-9 column">
 
-      <% if has_banners? %>
-        <%= render "shared/banner" %>
-      <% end %>
+      <%= render Shared::BannerComponent.new("proposals") %>
 
       <% if show_featured_proposals? %>
         <div id="featured-proposals" class="row featured-proposals">
@@ -65,10 +63,10 @@
         <%= render "shared/order_links", i18n_namespace: "proposals.index" %>
       <% end %>
 
-      <% if (@proposals.any? && 
+      <% if (@proposals.any? &&
       (current_user.present? && (current_user.moderator? || current_user.administrator?)) ||
            (@search_terms.present? && (!@search_terms.downcase().include? "bischofshut"))) %>
-        
+
         <div class="show-for-small-only">
           <%= link_to t("proposals.index.start_proposal"),
                     (new_proposal_path + (if params[:project].present? then ("?project="+params[:project]) else "" end)),
@@ -104,10 +102,10 @@
     <div class="small-12 medium-3 column">
       <aside class="margin-bottom">
         <% if (current_user.present? && (current_user.moderator? || current_user.administrator?)) ||
-           (params[:project].present? && 
-           !(params[:project].downcase().include?("bischofshut") || 
-           params[:project].downcase().include?("katzenbergtunnel") || 
-           params[:project].downcase().include?("handlungsbedarfe grombühl") || 
+           (params[:project].present? &&
+           !(params[:project].downcase().include?("bischofshut") ||
+           params[:project].downcase().include?("katzenbergtunnel") ||
+           params[:project].downcase().include?("handlungsbedarfe grombühl") ||
            params[:project].downcase().include?("stärken grombühl"))) %>
           <%= link_to t("proposals.index.start_proposal"),
                       (new_proposal_path + (if params[:project].present? then ("?project="+params[:project]) else "" end)),

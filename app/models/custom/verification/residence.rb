@@ -15,9 +15,10 @@ class Verification::Residence
   validate :allowed_age
   validate :document_number_uniqueness
   
-  validate :postal_code_in_city
+  validate :local_postal_code
+  validate :local_residence
 
-  def postal_code_in_city
+  def local_postal_code
     errors.add(:postal_code, I18n.t("verification.residence.new.error_not_allowed_postal_code")) unless valid_postal_code?
   end
   
@@ -39,6 +40,15 @@ class Verification::Residence
                 date_of_birth:         date_of_birth.in_time_zone.to_datetime,
                 gender:                gender,
                 residence_verified_at: Time.current)
+
+  def local_residence
+    return if errors.any?
+
+    unless residency_valid?
+      errors.add(:local_residence, false)
+      store_failed_attempt
+      Lock.increase_tries(user)
+    end
   end
 
   def save!

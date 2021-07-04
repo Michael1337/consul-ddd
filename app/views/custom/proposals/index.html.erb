@@ -19,13 +19,16 @@
   <% end %>
 
   <div class="row">
-    <div class="map inline">
-      <h3><%= t("proposals.index.map") %></h3>
-      <%= render_map(nil, "proposals", false, nil, @proposals_coordinates) %>
-    </div>
-    <div class="no-bullet margin-top"> 
-    </div>
-
+  
+	<% if !@search_terms.present? || (!@search_terms.downcase().include? "katzenbergtunnel") %>
+	    <div class="map inline">
+	      <h3><%= t("proposals.index.map") %></h3>
+	      <%= render_map(nil, "proposals", false, nil, @proposals_coordinates) %>
+	    </div>
+	    <div class="no-bullet margin-top"> 
+	    </div>
+	<% end %>
+  	
     <div id="proposals" class="proposals-list small-12 medium-9 column">
 
       <% if has_banners? %>
@@ -68,7 +71,7 @@
         
         <div class="show-for-small-only">
           <%= link_to t("proposals.index.start_proposal"),
-                    (new_proposal_path + (if @search_terms then ("?project="+@search_terms) else "" end)),
+                    (new_proposal_path + (if params[:project].present? then ("?project="+params[:project]) else "" end)),
                       class: "button expanded" %>
         </div>
       <% end %>
@@ -101,26 +104,21 @@
     <div class="small-12 medium-3 column">
       <aside class="margin-bottom">
         <% if (current_user.present? && (current_user.moderator? || current_user.administrator?)) ||
-           (@search_terms.present? && (!@search_terms.downcase().include? "bischofshut")) %>
+           (params[:project].present? && 
+           !(params[:project].downcase().include?("bischofshut") || 
+           params[:project].downcase().include?("katzenbergtunnel") || 
+           params[:project].downcase().include?("handlungsbedarfe grombühl") || 
+           params[:project].downcase().include?("stärken grombühl"))) %>
           <%= link_to t("proposals.index.start_proposal"),
-                      (new_proposal_path + (if @search_terms then ("?project="+@search_terms) else "" end)),
+                      (new_proposal_path + (if params[:project].present? then ("?project="+params[:project]) else "" end)),
                       class: "button expanded" %>
 
-          <div class="sidebar-divider"></div>
         <% end %>
-        <h2 class="sidebar-title"><%= t("proposals.index.selected_proposals") %></h2>
-        <br>
-        <p class="small">
-          <%= link_to t("proposals.index.selected_proposals_link"), proposals_path(selected: "all") %>
-        </p>
 
         <% if params[:retired].blank? %>
-          <%= render "categories" %>
-          <%= render "shared/tag_cloud", taggable: "proposal" %>
-          <%= render "geozones" %>
+          <!-- <%= render "categories" %> -->
         <% end %>
         <%= render "retired" %>
-        <%= render "proposals_lists" %>
       </aside>
     </div>
 

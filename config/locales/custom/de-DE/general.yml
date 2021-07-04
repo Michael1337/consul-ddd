@@ -1,20 +1,30 @@
 de:
   account:
     show:
-      user_permission_votes: An finaler Abstimmung teilnehmen *
-      user_permission_support_proposal:  Neuen Vorschlag erstellen *
-      user_permission_verify_info: "* Nur für bei der Stadt Würzburg gemeldete Bürger*innen möglich."
+      user_permission_votes: An finaler Abstimmung teilnehmen
+      user_permission_support_proposal: Neuen Vorschlag erstellen
+      user_permission_verify_info: ""
   layouts:
     footer:
-      participation_text: Gestalten Sie Ihre Stadt Würzburg, damit sie für Sie lebenswerter wird.
+      participation_text: Gestalten Sie Ihre Stadt Würzburg mit, damit sie für Sie lebenswerter wird.
       consul: einer Anwendung von Consul
-      contact_us: Für technische Unterstützung wenden Sie sich bitte an das ZDI Mainfranken.
+      contact_us: ""
       description: Diese Plattform basiert auf %{consul}, einer %{open_source}.
-      copyright: ZDI Mainfranken, %{year}
+      copyright: Stadt %{wuerzburg_link}, %{year}
+      wuerzburg_name: Würzburg
+      wuerzburg_url: https://wuerzburg.de
+      contactus: Impressum
+      netiquette: Netiquette
+      ticket_name: hier
+      ticket_url: https://newaccount1603974033138.freshdesk.com/support/home
+      ticket_text: Für Ihre Fragen und Anregungen freuen wir uns %{ticket_link} über Ihren Input.
+      ticket_title: Support
     header:
       collaborative_legislation: Bürgerbeteiligungsverfahren
   debates:
     index:
+      recommendations:
+        without_interests: Folgen Sie Vorschlägen, so dass wir Ihnen Empfehlungen geben können
       section_header:
         help: Hilfe zu "Diskussionen"
       section_footer:
@@ -22,15 +32,37 @@ de:
         help_text_1: "Bringen Sie Ihre eigenen Ideen zur Gestaltung der Stadt Würzburg ein. Teilen Sie Ihre Meinung mit Mitbürger*innen in einer Diskussion über Themen, die Sie interessieren und tauschen Sie sich über die Ideen und Anliegen aus."
     new:
       recommendation_one: Verwenden Sie bitte nicht ausschließlich Großbuchstaben für die Überschrift oder für komplette Sätze. Im Internet gilt das als schreien. Und niemand möchte angeschrien werden.
+    comments_deactivated: Zu dieser Diskussion sind keine weiteren Kommentare möglich.
+  form:
+    not_saved: "Speichern fehlgeschlagen. Bitte überprüfen Sie die gekennzeichneten Felder."
   proposals:
+    create:
+      form:
+        submit_button: Vorschau anzeigen
+    created:
+      title: Überprüfen Sie Ihre Angaben
+      motivation: "Damit Ihr Vorschlag angezeigt wird, klicken Sie auf \"Vorschlag veröffentlichen\"."
+      motivation_2: "Sobald Sie Ihren Vorschlag veröffentlicht haben, können Sie ihn nicht mehr bearbeiten."
+      publish: Vorschlag veröffentlichen
+      preview_title: So wird Ihr Vorschlag aussehen, wenn Sie ihn veröffentlichen
+      edit: Vorschlag bearbeiten
     index:
       section_header:
         help: Hilfe zu "Vorschläge"
       section_footer:
         title: Hilfe zu "Vorschläge"
         description: Die Vorschläge der Bürger*innen sind eine Möglichkeit für Sie, direkten Einfluss auf die Gestaltung der Stadt zu nehmen. Sie können die einzelnen Vorschläge unterstützen und unter den Vorschlägen diskutieren.
+    new:
+      form:
+        submit_button: Vorschau anzeigen
+        publish_note: Sie können den Vorschlag auf der folgenden Seite veröffentlichen.
+        publish_now: Vorschlag direkt veröffentlichen
     proposal:
       reason_for_supports_necessary: ""
+      share:
+        edit: ""
+      archived: "Dieser Vorschlag wurde archiviert und kann nicht mehr unterstützt werden."
+    comments_deactivated: Zu diesem Vorschlag sind keine weiteren Kommentare möglich.
   welcome:
     feed:
       most_active:
@@ -44,4 +76,3 @@ de:
   shared:
     follow_entity: "%{entity} folgen"
     unfollow_entity: "%{entity} nicht länger folgen"
-   

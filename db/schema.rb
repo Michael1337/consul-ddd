@@ -214,9 +214,9 @@ ActiveRecord::Schema.define(version: 2021_01_23_100638) do
     t.boolean "allow_custom_content", default: false
     t.text "latitude"
     t.text "longitude"
-    t.integer "max_ballot_lines", default: 1
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer "max_ballot_lines", default: 1
     t.index ["group_id"], name: "index_budget_headings_on_group_id"
   end
 
@@ -882,6 +882,7 @@ ActiveRecord::Schema.define(version: 2021_01_23_100638) do
     t.integer "zoom"
     t.integer "proposal_id"
     t.integer "investment_id"
+    t.integer "legislation_id"
     t.index ["investment_id"], name: "index_map_locations_on_investment_id"
     t.index ["proposal_id"], name: "index_map_locations_on_proposal_id"
   end

@@ -14,14 +14,14 @@ class Verification::Residence
 
   validate :allowed_age
   validate :document_number_uniqueness
-  
+
   validate :local_postal_code
   validate :local_residence
 
   def local_postal_code
     errors.add(:postal_code, I18n.t("verification.residence.new.error_not_allowed_postal_code")) unless valid_postal_code?
   end
-  
+
   def initialize(attrs = {})
     self.date_of_birth = parse_date("date_of_birth", attrs)
     attrs = remove_date("date_of_birth", attrs)
@@ -40,6 +40,7 @@ class Verification::Residence
                 date_of_birth:         date_of_birth.in_time_zone.to_datetime,
                 gender:                gender,
                 residence_verified_at: Time.current)
+  end
 
   def local_residence
     return if errors.any?
@@ -78,13 +79,13 @@ class Verification::Residence
   def geozone
     Geozone.find_by(census_code: postal_code)
   end
-  
+
   def gender
     ""
   end
 
   private
-  
+
     def clean_document_number
       self.document_number = document_number.gsub(/[^a-z0-9]+/i, "").upcase if document_number.present?
     end
@@ -93,4 +94,3 @@ class Verification::Residence
     postal_code =~ /^970/
   end
 end
-
